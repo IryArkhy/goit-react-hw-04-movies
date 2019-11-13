@@ -6,7 +6,9 @@ import styles from './Reviews.module.css';
 class Reviews extends Component {
   static propTypes = {
     match: T.shape({
-      params: T.shape({ movieId: T.string.isRequired }),
+      params: T.shape({
+        movieId: T.string.isRequired,
+      }),
       path: T.string.isRequired,
       url: T.string.isRequired,
     }).isRequired,
@@ -32,14 +34,18 @@ class Reviews extends Component {
 
   render() {
     const { reviews } = this.state;
+
     return (
-      <section className="reviews">
+      <section className={styles.reviews}>
+        {' '}
+        <h2>Reviews</h2>{' '}
         {reviews && (
-          <ul>
+          <ul className={styles.reviewsList}>
+            {' '}
             {reviews.map(review => (
               <li key={review.id}>
-                <h3>Author: {review.name}</h3>
-                <p>`{review.content}`</p>
+                {' '}
+                <h3>Author: {review.author}</h3> <p>` {review.content}`</p>{' '}
               </li>
             ))}
           </ul>

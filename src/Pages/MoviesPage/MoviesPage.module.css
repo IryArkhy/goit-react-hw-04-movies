@@ -1,0 +1,32 @@
+.MoviesPage {
+    color: rgb(37, 33, 33);
+}
+
+.MoviesPage_list {
+    list-style: none;
+}
+
+.MoviesPage_list>li {
+    padding: 4px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.MoviesPage_list>li>a>span {
+    padding: 10px;
+}
+
+.MoviesPage_list>li>a {
+    text-decoration: none;
+    color: rgb(61, 59, 59);
+}
+
+
+
+.MoviesPage_list>li>a:visited {
+    color: rgb(221, 74, 74);
+}
+
+.MoviesPage_list>li>a:hover {
+    color: rgb(31, 165, 228);
+}

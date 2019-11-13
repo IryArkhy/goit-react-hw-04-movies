@@ -1,0 +1,31 @@
+.reviews {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.reviews>h2 {
+    font-family: 'Baloo Bhai';
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.reviewsList>li {
+    margin-bottom: 20px;
+    -webkit-box-shadow: 4px 10px 21px -2px rgba(82, 80, 82, 0.66);
+    -moz-box-shadow: 4px 10px 21px -2px rgba(82, 80, 82, 0.66);
+    box-shadow: 4px 10px 21px -2px rgba(82, 80, 82, 0.66);
+    list-style: none;
+    padding: 30px;
+}
+
+.reviewsList>li>h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.reviewsList>li>p {
+    font-style: italic;
+    font-weight: 300;
+    text-align: justify;
+    font-size: 15px;
+}

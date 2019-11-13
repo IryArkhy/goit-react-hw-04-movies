@@ -34,11 +34,12 @@ class Cast extends Component {
   render() {
     const { cast } = this.state;
     return (
-      <section>
+      <section className={styles.cast}>
+        <h2>Cast</h2>
         {cast && (
-          <ul>
+          <ul className={styles.castList}>
             {cast.map(person => (
-              <li key={person.cast_id}>
+              <li key={person.cast_id} className={styles.castList__item}>
                 <object
                   data={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
                   type="image/png"
@@ -50,8 +51,10 @@ class Cast extends Component {
                     width="140"
                   />
                 </object>
-                <p>{person.name}</p>
-                <p>Character: {person.character}</p>
+                <p className={styles.castList__name}>{person.name}</p>
+                <p>
+                  <span>Character:</span> {person.character}
+                </p>
               </li>
             ))}
           </ul>

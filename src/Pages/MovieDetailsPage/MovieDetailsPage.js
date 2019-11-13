@@ -60,28 +60,34 @@ class MovieDetailsPage extends Component {
         {movie && (
           <>
             <section className={styles.details_info}>
-              <h3>
-                {movie.title} ({movie.release_date.slice(0, 4)})
-              </h3>
-              <p> User score: {movie.vote_average * 10}%</p>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
-              <h3>Genres</h3>
-              <p>{movie.genres.map(item => ` ${item.name} `)}</p>
               <img
                 src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
                 width="320"
                 alt="poster"
               />
+              <div className={styles.details_info__wrapper}>
+                <h3>
+                  {movie.title} ({movie.release_date.slice(0, 4)})
+                </h3>
+                <p> User score: {movie.vote_average * 10}%</p>
+                <h3>Overview</h3>
+                <p>{movie.overview}</p>
+                <h3>Genres</h3>
+                <p>{movie.genres.map(item => ` ${item.name} `)}</p>
+              </div>
             </section>
             <section className={styles.details_additional}>
               <h3>Additional information</h3>
-              <ul>
+              <ul className={styles.details_additional__list}>
                 <li>
-                  <Link to={`${match.url}/cast`}>Cast</Link>
+                  <Link to={`${match.url}/cast`}>
+                    <span>&#8680;</span> Cast
+                  </Link>
                 </li>
                 <li>
-                  <Link to={`${match.url}/reviews`}>Reviews</Link>
+                  <Link to={`${match.url}/reviews`}>
+                    <span>&#8680;</span> Reviews
+                  </Link>
                 </li>
               </ul>
               <Switch>

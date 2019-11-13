@@ -10,6 +10,7 @@
 
 .inTrend_list>li {
     padding: 4px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .inTrend_list>li>a>span {
@@ -21,10 +22,12 @@
     color: rgb(61, 59, 59);
 }
 
-.inTrend_list>li>a:active {
-    color: red;
-}
+
 
 .inTrend_list>li>a:visited {
     color: rgb(221, 74, 74);
+}
+
+.inTrend_list>li>a:hover {
+    color: rgb(31, 165, 228);
 }

@@ -67,11 +67,16 @@ class MoviesPage extends Component {
     return (
       <div className={styles.MoviesPage}>
         <SearchForm onSearch={this.setSearchQuery} />
-        {movies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`${match.url}/${movie.id}`}>{movie.original_title}</Link>
-          </li>
-        ))}
+        <ul className={styles.MoviesPage_list}>
+          {movies.map(movie => (
+            <li key={movie.id}>
+              <Link to={`${match.url}/${movie.id}`}>
+                <span>&#8680;</span>
+                {movie.original_title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

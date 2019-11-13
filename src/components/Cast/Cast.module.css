@@ -1,10 +1,45 @@
-/* Стили компонента Gallery */
-.gallery {
-  display: grid;
-  max-width: 1440px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 16px;
-  margin-left: auto;
-  margin-right: auto;
+.cast {
+  padding: 0 50px;
+}
+
+.cast>h2 {
+  font-family: 'Baloo Bhai';
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.castList {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.castList__item {
+  width: 20%;
+  padding: 30px 10px;
+  margin: 10px;
+  -webkit-box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+  -moz-box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+  box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+}
+
+.castList__item>object {
+  margin: auto;
+  display: block;
+}
+
+.castList__item>p {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.castList__name {
+  font-style: italic;
+}
+
+.castList__item>p>span {
+  font-weight: bold;
 }

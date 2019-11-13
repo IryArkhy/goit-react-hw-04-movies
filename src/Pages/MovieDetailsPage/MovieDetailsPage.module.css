@@ -24,3 +24,37 @@ h3 {
     font-family: 'Baloo Bhai';
     font-size: 25px;
 }
+
+.details_info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.details_info__wrapper {
+    padding: 0 50px;
+}
+
+.details_info__wrapper>p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details_additional__list {
+    list-style: none;
+}
+
+.details_additional__list>li>a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+.details_additional__list>li>a:visited {
+    color: rgb(241, 74, 74);
+}
+
+.details_additional__list>li>a:hover {
+    color: rgb(0, 162, 255);
+}
