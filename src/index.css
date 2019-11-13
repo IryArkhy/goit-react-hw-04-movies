@@ -1,6 +1,8 @@
 /* Базовые стили */
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *,
@@ -14,6 +16,8 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #212121;
   background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -21,4 +25,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-

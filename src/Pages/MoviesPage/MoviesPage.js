@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import T from 'prop-types';
 import SearchForm from '../../components/SearchForm';
 import moviesAPI from '../../servises/movies-api';
 import styles from './MoviesPage.module.css';
 
 class MoviesPage extends Component {
+  static propTypes = {
+    history: T.shape({
+      push: T.func.isRequired,
+    }).isRequired,
+    location: T.shape({
+      pathname: T.string.isRequired,
+      search: T.string.isRequired,
+      key: T.string.isRequired,
+    }).isRequired,
+    match: T.shape({
+      params: T.shape({ movieId: T.string }),
+      path: T.string.isRequired,
+      url: T.string.isRequired,
+    }).isRequired,
+  };
+
   state = {
     movies: [],
   };
 
   componentDidMount() {
-    const query = new URLSearchParams(this.props.location.search).get('query');
+    const { location } = this.props;
+    const query = new URLSearchParams(location.search).get('query');
     if (!query) return;
     moviesAPI.fetchMovies(query).then(movies =>
       this.setState({
@@ -20,15 +37,13 @@ class MoviesPage extends Component {
     );
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // const prevQuery = prevProps.location.search;
+  componentDidUpdate(prevProps) {
+    const { location } = this.props;
     const prevQuery = new URLSearchParams(prevProps.location.search).get(
       'query',
     );
 
-    const nextQuery = new URLSearchParams(this.props.location.search).get(
-      'query',
-    );
+    const nextQuery = new URLSearchParams(location.search).get('query');
 
     if (prevQuery === nextQuery) return;
 
@@ -40,7 +55,6 @@ class MoviesPage extends Component {
   }
 
   setSearchQuery = serchQuery => {
-    // програмная навигация
     this.props.history.push({
       ...this.props.location,
       search: `query=${serchQuery}`,
@@ -50,13 +64,11 @@ class MoviesPage extends Component {
   render() {
     const { movies } = this.state;
     const { match } = this.props;
-    console.log(this.props.history);
     return (
       <div className={styles.MoviesPage}>
         <SearchForm onSearch={this.setSearchQuery} />
         {movies.map(movie => (
           <li key={movie.id}>
-            {/* <Link to={`movies/${movie.id}`}>{movie.original_title}</Link> */}
             <Link to={`${match.url}/${movie.id}`}>{movie.original_title}</Link>
           </li>
         ))}
@@ -66,35 +78,3 @@ class MoviesPage extends Component {
 }
 
 export default MoviesPage;
-
-// MoviesPage.propTypes = {
-//   images: T.arrayOf(
-//     T.shape({
-//       id: T.number,
-//       pageURL: T.string,
-//       type: T.string,
-//       tags: T.string,
-//       previewURL: T.string,
-//       previewWidt: T.number,
-//       previewHeigh: T.number,
-//       webformatURL: T.string,
-//       webformatWidt: T.number,
-//       webformatHeigh: T.number,
-//       largeImageURL: T.string,
-//       fullHDUR: T.string,
-//       imageUR: T.string,
-//       imageWidt: T.number,
-//       imageHeigh: T.number,
-//       imageSiz: T.number,
-//       views: T.number,
-//       downloads: T.number,
-//       favorites: T.number,
-//       likes: T.number,
-//       comments: T.number,
-//       user_id: T.number,
-//       user: T.string,
-//       userImageURL: T.string,
-//     }).isRequired,
-//   ).isRequired,
-//   openModal: T.func.isRequired,
-// };

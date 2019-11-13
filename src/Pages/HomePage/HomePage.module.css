@@ -1,0 +1,30 @@
+.inTrend {
+    font-family: 'Baloo Bhai';
+    font-size: 35px;
+    color: rgb(37, 33, 33);
+}
+
+.inTrend_list {
+    list-style: none;
+}
+
+.inTrend_list>li {
+    padding: 4px;
+}
+
+.inTrend_list>li>a>span {
+    padding: 10px;
+}
+
+.inTrend_list>li>a {
+    text-decoration: none;
+    color: rgb(61, 59, 59);
+}
+
+.inTrend_list>li>a:active {
+    color: red;
+}
+
+.inTrend_list>li>a:visited {
+    color: rgb(221, 74, 74);
+}

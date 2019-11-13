@@ -1,12 +1,19 @@
-import React, { Component, createRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { Component } from 'react';
 import T from 'prop-types';
 import movieApi from '../../servises/movies-api';
 import styles from './Reviews.module.css';
 
 class Reviews extends Component {
+  static propTypes = {
+    match: T.shape({
+      params: T.shape({ movieId: T.string.isRequired }),
+      path: T.string.isRequired,
+      url: T.string.isRequired,
+    }).isRequired,
+  };
+
   state = {
-    reviews: null,
+    reviews: [],
   };
 
   componentDidMount() {
@@ -37,6 +44,7 @@ class Reviews extends Component {
             ))}
           </ul>
         )}
+        {reviews.length === 0 && <p>We do not have reviews for this movie</p>}
       </section>
     );
   }

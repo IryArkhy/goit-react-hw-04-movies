@@ -7,6 +7,17 @@ import movieAPI from '../../servises/movies-api';
 import styles from './MovieDetailsPage.module.css';
 
 class MovieDetailsPage extends Component {
+  static propTypes = {
+    history: T.shape({
+      goBack: T.func.isRequired,
+    }).isRequired,
+    match: T.shape({
+      params: T.shape({ movieId: T.string.isRequired }),
+      path: T.string.isRequired,
+      url: T.string.isRequired,
+    }).isRequired,
+  };
+
   state = {
     movie: null,
   };
@@ -17,7 +28,6 @@ class MovieDetailsPage extends Component {
 
   fetchDetails = () => {
     const movieID = this.props.match.params.movieId;
-    console.log(this.props.match.params);
     movieAPI
       .fetchMovieDetails(movieID)
       .then(movie => {
@@ -37,12 +47,16 @@ class MovieDetailsPage extends Component {
     const { movie } = this.state;
     const { match } = this.props;
     return (
-      <div className={styles.details_page}>
-        <button onClick={this.moveToPreviousPage} type="button">
+      <div className={styles.movieDetails}>
+        <button
+          className={styles.back_button}
+          onClick={this.moveToPreviousPage}
+          type="button"
+        >
           GO BACK
         </button>
 
-        <h2>Details</h2>
+        <h2>Movie Details</h2>
         {movie && (
           <>
             <section className={styles.details_info}>

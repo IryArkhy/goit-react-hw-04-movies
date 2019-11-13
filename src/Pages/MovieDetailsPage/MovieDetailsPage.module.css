@@ -1,1 +1,26 @@
+.movieDetails {
+    width: 90%;
+    margin: auto;
+    -webkit-box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+    -moz-box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+    box-shadow: 4px 10px 16px -6px rgba(82, 80, 82, 1);
+    padding: 30px;
+}
 
+.back_button {
+    background-color: rgb(243, 67, 67);
+    padding: 10px;
+    border-radius: 13px;
+    display: block;
+    color: white;
+    margin: auto;
+    font-family: 'Baloo Bhai';
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.movieDetails>h2,
+h3 {
+    font-family: 'Baloo Bhai';
+    font-size: 25px;
+}

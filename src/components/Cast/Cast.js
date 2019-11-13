@@ -3,25 +3,22 @@ import T from 'prop-types';
 import movieApi from '../../servises/movies-api';
 import styles from './Cast.module.css';
 
-// const Cast = ({ id}) => {
-//   t
-//   return (
-//     <ul className={styles.Cast}>
-//       {images.map(imageObj => (
-//         <li key={imageObj.id}>0</li>
-//       ))}
-//     </ul>
-//   );
-// };
-
 class Cast extends Component {
+  static propTypes = {
+    match: T.shape({
+      params: T.shape({ movieId: T.string.isRequired }),
+      path: T.string.isRequired,
+      url: T.string.isRequired,
+    }).isRequired,
+  };
+
   state = {
     cast: null,
   };
 
   componentDidMount() {
-    const { movie } = this.props;
-    const movieID = this.props.match.params.movieId;
+    const { match } = this.props;
+    const movieID = match.params.movieId;
 
     this.getCredits(movieID);
   }
@@ -63,37 +60,4 @@ class Cast extends Component {
     );
   }
 }
-
 export default Cast;
-
-// Cast.propTypes = {
-//   images: T.arrayOf(
-//     T.shape({
-//       id: T.number,
-//       pageURL: T.string,
-//       type: T.string,
-//       tags: T.string,
-//       previewURL: T.string,
-//       previewWidt: T.number,
-//       previewHeigh: T.number,
-//       webformatURL: T.string,
-//       webformatWidt: T.number,
-//       webformatHeigh: T.number,
-//       largeImageURL: T.string,
-//       fullHDUR: T.string,
-//       imageUR: T.string,
-//       imageWidt: T.number,
-//       imageHeigh: T.number,
-//       imageSiz: T.number,
-//       views: T.number,
-//       downloads: T.number,
-//       favorites: T.number,
-//       likes: T.number,
-//       comments: T.number,
-//       user_id: T.number,
-//       user: T.string,
-//       userImageURL: T.string,
-//     }).isRequired,
-//   ).isRequired,
-//   openModal: T.func.isRequired,
-// };
