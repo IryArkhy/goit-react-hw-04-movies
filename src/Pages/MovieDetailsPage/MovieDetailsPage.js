@@ -61,8 +61,7 @@ class MovieDetailsPage extends Component {
           <>
             <section className={styles.details_info}>
               <img
-                src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-                width="320"
+                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                 alt="poster"
               />
               <div className={styles.details_info__wrapper}>

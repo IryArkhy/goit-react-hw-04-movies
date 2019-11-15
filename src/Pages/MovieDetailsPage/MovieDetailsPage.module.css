@@ -49,6 +49,11 @@ h3 {
     cursor: pointer;
 }
 
+.details_info>img {
+    width: 320px;
+    height: auto;
+}
+
 
 
 .details_additional__list>li>a:visited {
