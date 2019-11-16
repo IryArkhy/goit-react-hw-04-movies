@@ -22,7 +22,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://IryArkhy.github.io/goit-react-hw-04-movies",
   "eslintConfig": {
     "extends": "react-app"
   },
